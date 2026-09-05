@@ -4,153 +4,97 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#ffffff" />
-  <title>캠핑코드 제품 찾기</title>
+  <title>캠핑코드 제품 안내</title>
   <style>
-    :root {
-      --bg: #f7f7f8;
-      --card: #ffffff;
-      --text: #171717;
-      --muted: #6f7176;
-      --line: #ececef;
-      --button: #111111;
-      --button-text: #ffffff;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-                   "Noto Sans KR", "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    .wrap {
-      width: 100%;
-      max-width: 480px;
-      padding: 34px 18px 50px;
-    }
-    .brand {
-      text-align: center;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: -0.2px;
-      margin-bottom: 14px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 30px 22px 24px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.04);
-      text-align: center;
-    }
-    h1 {
-      font-size: 24px;
-      margin: 0 0 9px;
-      letter-spacing: -0.8px;
-    }
-    .desc {
-      font-size: 15px;
-      line-height: 1.55;
-      color: var(--muted);
-      margin: 16px 0 20px;
-    }
-    .label {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .number {
-      width: 100%;
-      padding: 19px 16px;
-      border-radius: 16px;
-      background: #f4f4f5;
-      font-size: 38px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      user-select: all;
-      -webkit-user-select: all;
-    }
-    button {
-      width: 100%;
-      border: 0;
-      border-radius: 16px;
-      padding: 17px 16px;
-      font-size: 16px;
-      font-weight: 800;
-      background: var(--button);
-      color: var(--button-text);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-    button:active { transform: scale(.99); }
-    .hint {
-      min-height: 23px;
-      margin-top: 13px;
-      font-size: 13px;
-      line-height: 1.45;
-      color: var(--muted);
-    }
-    .small {
-      margin-top: 18px;
-      font-size: 12px;
-      line-height: 1.55;
-      color: #92949a;
-    }
-    .error {
-      text-align: center;
-      padding: 30px 16px;
-      color: var(--muted);
-    }
+    :root { --bg:#f7f7f8; --card:#fff; --text:#171717; --muted:#6f7176; --line:#ececef; --button:#111; --button-text:#fff; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Segoe UI",sans-serif; background:var(--bg); color:var(--text); display:flex; justify-content:center; align-items:flex-start; }
+    .wrap { width:100%; max-width:480px; padding:34px 18px 50px; }
+    .brand { text-align:center; font-size:15px; font-weight:800; margin-bottom:14px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:22px; padding:30px 22px 24px; box-shadow:0 8px 30px rgba(0,0,0,.04); text-align:center; }
+    h1 { font-size:24px; margin:0 0 24px; letter-spacing:-0.8px; }
+    .label { font-size:13px; font-weight:700; color:var(--muted); margin-bottom:8px; }
+    .number { width:100%; padding:19px 16px; border-radius:16px; background:#f4f4f5; font-size:38px; font-weight:900; letter-spacing:1px; margin-bottom:16px; user-select:all; -webkit-user-select:all; }
+    .desc { font-size:15px; line-height:1.55; color:var(--muted); margin:16px 0 20px; }
+    button { width:100%; border:0; border-radius:16px; padding:17px 16px; font-size:16px; font-weight:800; background:var(--button); color:var(--button-text); cursor:pointer; -webkit-tap-highlight-color:transparent; }
+    button:active { transform:scale(.99); }
+    .hint { min-height:0; margin-top:0; font-size:13px; color:var(--muted); }
   </style>
 </head>
 <body>
   <main class="wrap">
     <div class="brand">캠핑코드</div>
-
-    <section class="card" id="productCard">
+    <section class="card">
       <h1>✨ 제품 안내</h1>
-
       <div class="label">📍 상품번호</div>
       <div class="number" id="productNo">41</div>
-
-      <p class="desc">
-        아래 버튼을 누르면 상품번호가 복사되고<br>
-        검색창에 붙여넣기만 하면 끝! 👇
-      </p>
-
+      <p class="desc">아래 버튼을 누르면 상품번호가 복사되고<br>검색창에 붙여넣기만 하면 끝! 👇</p>
       <button id="goButton" type="button">상품번호 복사하고 바로가기 →</button>
-
       <div class="hint" id="status"></div>
     </section>
-
-    <div class="error" id="errorBox" hidden>
-      상품 정보를 찾을 수 없습니다.
-    </div>
   </main>
 
   <script>
     const INFLUENCER_URL = "https://influencers.coupang.com/s/campingcode";
 
-    const PARTNER_FALLBACK = {
+    // Google Sheets에서 '웹에 게시'한 CSV 주소를 아래 따옴표 안에 넣으세요.
+    // 예: https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=0&single=true&output=csv
+    const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRSXKpdMk9POcBjgVDZtf04OtGpzk1l6s6rSU4Nd6qDP9RqdAF7V9xdClxRqn3Uj6s8sfrDtoVw2v5J/pub?gid=0&single=true&output=csv";
+
+    // 시트 연결 전/오류 시 41번만 비상 fallback으로 유지
+    const EMERGENCY_FALLBACK = {
       "41": "https://link.coupang.com/a/gNdsJyNFo4"
     };
 
     const params = new URLSearchParams(window.location.search);
     const productNo = (params.get("no") || "41").trim();
 
-    const productCard = document.getElementById("productCard");
-    const errorBox = document.getElementById("errorBox");
     const productNoEl = document.getElementById("productNo");
     const goButton = document.getElementById("goButton");
     const statusEl = document.getElementById("status");
-
     productNoEl.textContent = productNo;
+
+    let partnerMap = { ...EMERGENCY_FALLBACK };
+
+    function parseCSV(text) {
+      const rows = [];
+      let row = [], cell = "", inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const ch = text[i], next = text[i + 1];
+        if (ch === '"') {
+          if (inQuotes && next === '"') { cell += '"'; i++; }
+          else inQuotes = !inQuotes;
+        } else if (ch === "," && !inQuotes) {
+          row.push(cell); cell = "";
+        } else if ((ch === "\n" || ch === "\r") && !inQuotes) {
+          if (ch === "\r" && next === "\n") i++;
+          row.push(cell);
+          if (row.some(v => String(v).trim() !== "")) rows.push(row);
+          row = []; cell = "";
+        } else {
+          cell += ch;
+        }
+      }
+      row.push(cell);
+      if (row.some(v => String(v).trim() !== "")) rows.push(row);
+      return rows;
+    }
+
+    async function loadPartnerMap() {
+      if (!SHEET_CSV_URL.startsWith("http")) return;
+      try {
+        const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error("sheet fetch failed");
+        const rows = parseCSV(await res.text());
+        const map = {};
+        for (let i = 1; i < rows.length; i++) {
+          const no = (rows[i][0] || "").trim();
+          const url = (rows[i][1] || "").trim();
+          if (no && /^https?:\/\//i.test(url)) map[no] = url;
+        }
+        partnerMap = { ...EMERGENCY_FALLBACK, ...map };
+      } catch (_) {}
+    }
 
     function legacyCopy(text) {
       return new Promise((resolve, reject) => {
@@ -163,45 +107,22 @@
           ta.style.pointerEvents = "none";
           ta.style.left = "-9999px";
           document.body.appendChild(ta);
-          ta.focus();
-          ta.select();
-          ta.setSelectionRange(0, ta.value.length);
-
+          ta.focus(); ta.select(); ta.setSelectionRange(0, ta.value.length);
           const ok = document.execCommand("copy");
           document.body.removeChild(ta);
-
           ok ? resolve() : reject(new Error("legacy copy failed"));
-        } catch (e) {
-          reject(e);
-        }
+        } catch (e) { reject(e); }
       });
     }
 
     async function copyProductNo(text) {
       if (navigator.clipboard && window.isSecureContext) {
-        try {
-          await navigator.clipboard.writeText(text);
-          return true;
-        } catch (_) {}
+        try { await navigator.clipboard.writeText(text); return true; } catch (_) {}
       }
-
-      try {
-        await legacyCopy(text);
-        return true;
-      } catch (_) {
-        return false;
-      }
+      try { await legacyCopy(text); return true; } catch (_) { return false; }
     }
 
     async function handleGo() {
-      const fallbackUrl = PARTNER_FALLBACK[productNo];
-
-      if (!fallbackUrl) {
-        productCard.hidden = true;
-        errorBox.hidden = false;
-        return;
-      }
-
       goButton.disabled = true;
       goButton.textContent = "잠시만요...";
       statusEl.textContent = "";
@@ -209,17 +130,16 @@
       const copied = await copyProductNo(productNo);
 
       if (copied) {
-        statusEl.textContent = "";
-        setTimeout(() => {
-          window.location.href = INFLUENCER_URL;
-        }, 250);
-      } else {
-        statusEl.textContent = "";
-        window.location.href = fallbackUrl;
+        setTimeout(() => { window.location.href = INFLUENCER_URL; }, 250);
+        return;
       }
+
+      const fallbackUrl = partnerMap[productNo];
+      window.location.href = fallbackUrl || INFLUENCER_URL;
     }
 
     goButton.addEventListener("click", handleGo);
+    loadPartnerMap();
   </script>
 </body>
 </html>
